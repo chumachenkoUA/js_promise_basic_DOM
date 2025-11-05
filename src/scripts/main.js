@@ -4,17 +4,17 @@ const body = document.querySelector('body');
 const logo = document.querySelector('.logo');
 
 function promises() {
-  const promiseOne = new Promise((resolve) => {
+  const promise1 = new Promise((resolve) => {
     logo.addEventListener('click', () => resolve('Promise was resolved!'));
   });
 
-  const promiseTwo = new Promise((resolve, reject) => {
+  const promise2 = new Promise((resolve, reject) => {
     setTimeout(() => {
       reject(new Error('Promise was rejected!'));
     }, 3000);
   });
 
-  promiseOne
+  promise1
     .then((message) => {
       const div = document.createElement('div');
 
@@ -25,12 +25,12 @@ function promises() {
     .catch((err) => {
       const div = document.createElement('div');
 
-      div.classList.add('message error-message');
+      div.classList.add('message', 'error-message');
       div.textContent = err.message;
       body.append(div);
     });
 
-  promiseTwo
+  promise2
     .then((message) => {
       const div = document.createElement('div');
 
